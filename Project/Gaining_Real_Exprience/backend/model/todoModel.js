@@ -10,8 +10,9 @@ const todoSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    
 });
+
+
 
 const Todo = mongoose.model("Todo", todoSchema);
 

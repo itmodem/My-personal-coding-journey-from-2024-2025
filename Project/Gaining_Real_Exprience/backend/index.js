@@ -10,6 +10,9 @@ dotenv.config();
 const PORT = process.env.PORT || 5001;
 const DB_URI = process.env.MONGO_URI;
 
+// Middleware
+app.use(express.json());
+
 // Database connection code
 try {
     await mongoose.connect(DB_URI);
@@ -18,7 +21,6 @@ try {
     console.log("❌ Connection failed", error.message);
 }
 
-app.use(express.json());
 app.use("/todo", todoRoutes);
 
 app.listen(PORT, () => {
