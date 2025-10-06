@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import todoRoutes from './routes/todoRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -21,7 +22,9 @@ try {
     console.log("❌ Connection failed", error.message);
 }
 
+// routes
 app.use("/todo", todoRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
